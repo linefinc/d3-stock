@@ -93,7 +93,7 @@
 
     x.domain(xRange);
     y.domain(d3.extent(data.map(function(d) { return d.price; })));
-    y3.domain(d3.extent(data.map(function(d) { return d.price; })));
+    y3.domain(d3.extent(data.map(function(d) { return d.volume; })));
     x2.domain(x.domain());
     y2.domain(y.domain());
 
@@ -136,9 +136,9 @@
       .enter().append('rect')
         .attr('class', 'chart__bars')
         .attr('x', function(d, i) { return x(d.date); })
-        .attr('y', function(d) { return 155 - y3(d.price); })
+        .attr('y', function(d) { return 155 - y3(d.volume); })
         .attr('width', 1)
-        .attr('height', function(d) { return y3(d.price); });
+        .attr('height', function(d) { return y3(d.volume); });
 
     var helper = focus.append('g')
       .attr('class', 'chart__helper')
